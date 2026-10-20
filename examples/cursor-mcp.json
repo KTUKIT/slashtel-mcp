@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "slashtel": {
+      "url": "https://slashtel.com/api/mcp"
+    }
+  }
+}

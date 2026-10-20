@@ -1,0 +1,10 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.slashtel/slashtel",
+  "title": "Slashtel",
+  "description": "Travel data eSIMs in about 200 destinations and mobile top-ups in 100+ countries, live prices.",
+  "version": "1.0.1",
+  "remotes": [
+    { "type": "streamable-http", "url": "https://slashtel.com/api/mcp" }
+  ]
+}

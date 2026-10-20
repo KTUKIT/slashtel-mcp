@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "slashtel": {
+      "type": "streamable-http",
+      "url": "https://slashtel.com/api/mcp"
+    }
+  }
+}
