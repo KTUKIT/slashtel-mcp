@@ -17,6 +17,21 @@ Transport: Streamable HTTP. Authentication: none. All tools are read-only.
 - ChatGPT plugin directory: https://chatgpt.com/plugins/plugin_asdk_app_6abaa95280608191985131b614a992b9
 - Smithery: https://smithery.ai/server/kaeltripton/slashtel
 
+
+## Run locally (stdio)
+
+For clients that only take local servers, this repo includes a small stdio server that proxies to the hosted endpoint. No API key and no account.
+
+```json
+{
+  "mcpServers": {
+    "slashtel": { "command": "npx", "args": ["-y", "github:KTUKIT/slashtel-mcp"] }
+  }
+}
+```
+
+Or with Docker: `docker build -t slashtel-mcp . && docker run -i --rm slashtel-mcp`. Set `SLASHTEL_MCP_URL` to use a different endpoint.
+
 ## Quick start
 
 ### Claude

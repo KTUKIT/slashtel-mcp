@@ -1,0 +1,16 @@
+{
+  "name": "slashtel-mcp",
+  "version": "1.0.1",
+  "description": "Slashtel MCP server: travel eSIMs in 190+ countries and mobile top-ups in 100+ countries. Local stdio proxy to the hosted server at https://slashtel.com/api/mcp.",
+  "license": "MIT",
+  "type": "module",
+  "bin": { "slashtel-mcp": "src/index.js" },
+  "main": "src/index.js",
+  "files": ["src"],
+  "engines": { "node": ">=18" },
+  "scripts": { "start": "node src/index.js" },
+  "repository": { "type": "git", "url": "https://github.com/KTUKIT/slashtel-mcp.git" },
+  "homepage": "https://slashtel.com/agents",
+  "keywords": ["mcp", "mcp-server", "esim", "travel", "mobile-top-up", "recharge"],
+  "dependencies": { "@modelcontextprotocol/sdk": "1.32.2" }
+}
