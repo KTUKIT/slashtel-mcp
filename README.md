@@ -1,5 +1,7 @@
 # Slashtel MCP server
 
+[![M8ven Score](https://m8ven.ai/badge/mcp/ktukit-slashtel-mcp-l30u9k?v=4dad0aa85232266bcd1bcd1af14b7080)](https://m8ven.ai/mcp/ktukit-slashtel-mcp-l30u9k?s=readme)
+
 Travel eSIMs for 190+ countries and mobile top-ups for 100+ countries, from inside any AI assistant.
 
 Slashtel is a remote [Model Context Protocol](https://modelcontextprotocol.io) server. There is nothing to install and no API key. Point your MCP client at the endpoint and the assistant can look up live plans, compare prices and hand the traveller a checkout link. Payment happens on [slashtel.com](https://slashtel.com); the assistant never touches card details.
