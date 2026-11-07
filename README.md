@@ -2,7 +2,7 @@
 
 [![M8ven Score](https://m8ven.ai/badge/mcp/ktukit-slashtel-mcp-l30u9k?v=4dad0aa85232266bcd1bcd1af14b7080)](https://m8ven.ai/mcp/ktukit-slashtel-mcp-l30u9k?s=readme)
 
-Travel eSIMs for 190+ countries and mobile top-ups for 100+ countries, from inside any AI assistant.
+Travel eSIMs for 190+ countries, mobile top-ups, live flight status and a layover eSIM finder, from inside any AI assistant.
 
 Slashtel is a remote [Model Context Protocol](https://modelcontextprotocol.io) server. There is nothing to install and no API key. Point your MCP client at the endpoint and the assistant can look up live plans, compare prices and hand the traveller a checkout link. Payment happens on [slashtel.com](https://slashtel.com); the assistant never touches card details.
 
@@ -17,7 +17,6 @@ Transport: Streamable HTTP. Authentication: none. All tools are read-only.
 - Official MCP Registry: `com.slashtel/slashtel`
 - Claude connector directory: https://claude.ai/directory/slashtel
 - ChatGPT plugin directory: https://chatgpt.com/plugins/plugin_asdk_app_6abaa95280608191985131b614a992b9
-- Smithery: https://smithery.ai/server/kaeltripton/slashtel
 
 
 ## Run locally (stdio)
@@ -81,12 +80,20 @@ Any client that supports remote Streamable HTTP servers works. Use the endpoint 
 
 ## Tools
 
+Ten tools, all read-only. Nothing is charged unless the buyer completes checkout on slashtel.com.
+
 | Tool | What it does |
 |---|---|
-| `list_esim_destinations` | Countries and regions with the lowest live price (USD) and plan count. Optional `search` text. |
+| `get_topup_plans` | Detects the operator of an international mobile number and lists the live recharge and plan options: what the recipient receives, validity, price in USD. |
+| `list_esim_destinations` | Every eSIM destination (countries and regions) with the lowest live price (USD) and plan count. Optional `search` text. |
 | `get_esim_plans` | Live plans for one destination: data in GB, validity in days, price in USD, price per GB. Takes an ISO-2 code such as `TR`, `JP`, `GB` or a destination code. Optional `min_gb`, `min_days`. |
-| `get_topup_plans` | Detects the operator of an international mobile number and returns the live top-up options: what the recipient receives, validity, price in USD. |
-| `create_checkout_link` | Returns a slashtel.com link with the chosen plan or top-up selected. The user pays there. |
+| `create_checkout_link` | A slashtel.com link with the chosen plan or top-up selected. The buyer pays there. |
+| `check_esim_status` | Data used and data left on an eSIM the traveller has already bought. |
+| `check_phone_compatibility` | How to confirm a phone supports eSIM and is unlocked. |
+| `get_layover_esim` | For a trip with a connection (Dubai, Doha, Istanbul, Singapore and 38 more hubs), the eSIM plans that cover the hub and the destination on one QR code. |
+| `get_flight_status` | Live status of a flight by flight number, with terminal, gate, baggage belt and a live map link. |
+| `get_flight_fares` | Cheapest fares by month on tracked routes. |
+| `create_price_alert_link` | A link to set up an email fare alert for a tracked route. |
 
 Full parameter reference: [docs/tools.md](docs/tools.md).
 
