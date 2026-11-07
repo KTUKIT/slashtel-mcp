@@ -1,6 +1,6 @@
 {
   "name": "slashtel-mcp",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "description": "Slashtel MCP server: travel eSIMs in 190+ countries and mobile top-ups in 100+ countries. Local stdio proxy to the hosted server at https://slashtel.com/api/mcp.",
   "license": "MIT",
   "type": "module",

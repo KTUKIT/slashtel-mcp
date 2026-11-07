@@ -1,6 +1,6 @@
 # Tool reference
 
-All tools are read-only. None of them charge money. Prices are USD, fees included, live at call time.
+Ten tools, all read-only. None of them charge money. eSIM and top-up prices are USD, fees included, live at call time.
 
 ## list_esim_destinations
 
@@ -47,6 +47,73 @@ Returns a slashtel.com link with the chosen item selected. The user enters their
 | `send_value` | number | for `topup` | From `get_topup_plans` |
 
 Returns `checkout_url`.
+
+## check_esim_status
+
+For a traveller who already bought a Slashtel eSIM. Both values must match the same order.
+
+| Parameter | Type | Required | Notes |
+|---|---|---|---|
+| `email` | string | yes | Email address used at checkout |
+| `iccid` | string | yes | The eSIM's ICCID, 18 to 22 digits, usually starting 89 (in the order email and in phone settings) |
+
+Returns data used, data left, plan size, expiry, status (not yet installed, active, used up or expired) and whether automatic top-up is on.
+
+## check_phone_compatibility
+
+How the traveller can confirm their phone supports eSIM and is unlocked before buying, with steps for iPhone and Android.
+
+| Parameter | Type | Required | Notes |
+|---|---|---|---|
+| `brand` | string | no | Phone brand for brand-specific steps, e.g. `iPhone`, `Samsung`, `Google Pixel` |
+
+## get_layover_esim
+
+For a trip with a connection: eSIM plans that cover the transit hub's country and the destination (and an optional second stop) on one QR code, cheapest first. Covers Dubai, Doha, Istanbul, Abu Dhabi, Singapore and 38 more hubs.
+
+| Parameter | Type | Required | Notes |
+|---|---|---|---|
+| `via` | string | yes | Transit airport code or city, e.g. `DXB`, `Doha`, `IST` |
+| `to` | string | yes | Destination country, ISO-2 code (`GB`, `IN`) or name |
+| `via2` | string | no | Optional second transit airport code or city |
+
+Returns the matching plans, cheapest first, with live prices in USD.
+
+## get_flight_status
+
+Live status of a flight by number for yesterday, today or tomorrow.
+
+| Parameter | Type | Required | Notes |
+|---|---|---|---|
+| `flight` | string | yes | Flight number with airline code, e.g. `EK3`, `BA 286`, `AI161` |
+| `day` | `yesterday`, `today` or `tomorrow` | no | Local day at the departure airport. Default `today` |
+
+Returns departure and arrival airports, scheduled and expected times, terminal, gate, baggage belt, whether it is in the air, its last reported position, and a slashtel.com link to follow it live and get a free email on delay and landing.
+
+## get_flight_fares
+
+Cheapest one-way fares by month from Slashtel's fare tracker: the next 12 months on tracked routes, the next 3 months on others. Slashtel does not sell flights; fares come from cached fare data in GBP and the airline sets the final price.
+
+| Parameter | Type | Required | Notes |
+|---|---|---|---|
+| `origin` | string | yes | IATA airport or city code, e.g. `LON`, `NYC`, `DXB` |
+| `destination` | string | yes | IATA airport or city code, e.g. `DEL`, `MNL` |
+
+Returns price, airline and stops per month, the cheapest month and a source link to cite.
+
+## create_price_alert_link
+
+A slashtel.com link that opens the free fare alert form with the route filled in. The traveller enters and confirms their own email; nothing is created until they confirm.
+
+| Parameter | Type | Required | Notes |
+|---|---|---|---|
+| `origin` | string | yes | IATA code, e.g. `LON` |
+| `destination` | string | yes | IATA code, e.g. `DEL` |
+| `origin_name` | string | no | City name, e.g. `London` |
+| `destination_name` | string | no | City name, e.g. `Delhi` |
+| `month` | string | no | Travel month, `YYYY-MM` |
+
+Returns the alert link.
 
 ## Errors
 
