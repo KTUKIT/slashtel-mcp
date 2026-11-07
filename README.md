@@ -17,7 +17,6 @@ Transport: Streamable HTTP. Authentication: none. All tools are read-only.
 - Official MCP Registry: `com.slashtel/slashtel`
 - Claude connector directory: https://claude.ai/directory/slashtel
 - ChatGPT plugin directory: https://chatgpt.com/plugins/plugin_asdk_app_6abaa95280608191985131b614a992b9
-- Smithery: https://smithery.ai/server/kaeltripton/slashtel
 
 
 ## Run locally (stdio)
